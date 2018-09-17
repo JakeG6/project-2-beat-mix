@@ -1,13 +1,18 @@
 // Drum Arrays
-let kicks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
-let snares =[false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
-let hiHats = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
-let rideCymbals = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+
+let drums = {
+    "kicks": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+    "snares": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+    "hiHats":  [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
+    "rideCymbals": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+}
+ 
 
 const toggleDrum = (drum, index) => {
-    if (drum && index) {
+    if (drum && (index >= 0 && index < 16)) {
         drum[index] = !drum[index];
     }
+    else return;
 }
 
 const clear = (drum) => {
@@ -17,7 +22,8 @@ const clear = (drum) => {
                 drum[i] = false;
             }
         }
-    } 
+    }
+    else return; 
 }
 
 const invert = (drum) => {
@@ -27,5 +33,8 @@ const invert = (drum) => {
                 drum[i] != drum[i];
             }    
         }
-    }   
+    } 
+    else {
+        return;
+    }  
 }

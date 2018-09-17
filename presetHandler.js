@@ -6,45 +6,46 @@ const presetHandler = (request, presetIndex, newPresetArray) => {
     
     let array = [];
 
-    if (presets[presetIndex] !== -1) {
+    if (request== 'PUT' || request == 'GET') {
+        if (presets[presetIndex]) {
         
-        
-        
-        switch(request) {
-            case 'GET':
-                //code block
-                if (presetIndex < presets.length) {
-                    array.push(200, presets[presetIndex]);
-                }
-                else {
-                    array.push(404);
-                }
-                break;
-
-            case 'PUT':
-                //code block
-                if (presetIndex < presets.length) {
-                    presets[presetIndex] = newPresetArray;
-                    array.push(200, presets[presetIndex]);
-                }
-                else {
-                    array.push(404);
-                }
-                
-                break;
-
-            default:
-                array.push(400);
+            switch(request) {
+                case 'GET':
+                    if (presetIndex < presets.length) {
+                        array.push(200, presets[presetIndex]);
+                    }
+                    else {
+                        array.push(404);
+                    }
+                    break;
+    
+                case 'PUT':
+                    if (presetIndex < presets.length) {
+                        presets[presetIndex] = newPresetArray;
+                        array.push(200, presets[presetIndex]);
+                    }
+                    else {
+                        array.push(404);
+                    }
+                    
+                    break;
+    
+                default:
+                    array.push(400);
+            }
+    
+            return array;
+    
         }
-
-        return array;
-
-    }
-    else {
-        array.push(404);
-        return array;
+        else {
+            array.push(404);
+            return array;
+        }
     }
 
+    else array.push(400);
+    
+    return array;
     
 };
 
