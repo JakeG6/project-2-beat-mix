@@ -26,7 +26,7 @@ let drums = {
 
 const toggleDrum = (drum, index) => {
     if (drum && (index >= 0 && index < 16)) {
-        drum[index] = !drum[index];
+        drums[drum][index] = !drums[drum][index];
     }
     else return;
 }
@@ -34,8 +34,8 @@ const toggleDrum = (drum, index) => {
 const clear = (drum) => {
     if (drum) {
         if (drum === "kicks" || drum === "snares" || drum === "hiHats" || drum === "rideCymbals") {
-            for (i = 0; i < drum.length; i++) {
-                drum[i] = false;
+            for (i = 0; i < drums[drum].length; i++) {
+                drums[drum][i] = false;
             }
         }
     }
@@ -45,8 +45,8 @@ const clear = (drum) => {
 const invert = (drum) => {
     if (drum) {
         if (drum === "kicks" || drum === "snares" || drum === "hiHats" || drum === "rideCymbals") {
-            for (i = 0; i < drum.length; i++) {
-                drum[i] != drum[i];
+            for (i = 0; i < drums[drum].length; i++) {
+                drums[drum][i] = !drums[drum][i];
             }    
         }
     } 
