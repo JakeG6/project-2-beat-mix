@@ -1,10 +1,26 @@
 // Drum Arrays
 
+
+
+let kicks = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+let snares = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+let hiHats = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+let rideCymbals = [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false];
+
 let drums = {
-    "kicks": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-    "snares": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-    "hiHats":  [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false],
-    "rideCymbals": [false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false]
+    get kicks() {
+        return kicks;
+    },
+    get snares() {
+        return snares;
+    },
+    get hiHats() {
+        return hiHats;
+    },
+    get rideCymbals() {
+        return rideCymbals;
+    },
+
 }
  
 
